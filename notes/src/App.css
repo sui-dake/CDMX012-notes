@@ -1,0 +1,212 @@
+body{
+  background-color: #FFF9EB;
+}
+.App {
+  display: flex;
+  flex-direction: column;
+}
+#mainCont{
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+}
+.logView{
+  display:flex;
+  margin-top: 10vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#logo{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #F4F4EF;
+  border: 6px solid #CDB9D5;
+  border-radius: 100%;
+  height: 160px;
+  width: 160px;
+  font-size: calc(15px + 2vmin);
+  color: #FFB964;
+  
+  padding: 0%;
+  margin: 0% 0% 5% 0%; 
+
+}
+#subfig{
+  background:#FED4D6;
+  height: 20px;
+  width: 100px;
+  margin: 5% 0% 10% 0%;
+}
+#loginTxt{
+  margin: 0% 0 10% 0;
+}
+form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+input{
+  margin: 0.5rem 0;
+  padding: 1rem;
+  outline: none;
+}
+.emailPass{
+  display: flex;
+  background-color: #FFE4C7;
+  border-radius: 30px;
+  border: none;
+  justify-content: center;
+}
+.submit{
+  border: none;
+  width: 40%;
+  cursor: pointer;
+  border-radius: 25px;
+  background-color: #CDB9D5;
+  padding: 8%;
+  margin-bottom: 10%;
+}
+#googleBtn{
+  width: 40px;
+  height: 40px;
+  margin: 5%;
+}
+#newAcc{
+  background-color: #FED4D6;
+  padding: 3% 5% 3% 5%;
+  width: max-content;
+  margin-top: 5%;
+}
+
+/* SIGN IN VIEW */
+.SignView{
+  display:flex;
+  margin-top: 10vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.rectangles{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  
+}
+
+.semilogo{
+  /* display: flex; */
+  margin: 1% 0 0 0;
+  height: 60px;
+  width: 60px;
+  transform: rotate(45deg);
+  border-radius: 10px;
+  /* flex-direction: row; */
+}
+
+#fig1{
+  background-color: #FED4D6;
+
+}
+#fig2{
+  background-color: #F9E8F2;
+}
+#fig3{
+  background-color: #CDB9D5;
+}
+#fig4{
+  background-color: #C2D5E4;
+}
+
+/* NOTES VIEW */
+#NotesView{
+  display: flex;
+  flex-direction: column;
+  
+}
+#NotesHeader{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: 3% 10% 3% 5%;
+}
+#NotesHeader #logo{
+  height: 50px;
+  width: 50px;
+  border: 3px solid #CDB9D5;
+  font-size: 10px;
+}
+#NotesHeader #subfig{
+  background:#FED4D6;
+  height: 8px;
+  width: 30px;
+  margin: 5% 0% 10% 0%;
+}
+#NotesHeader h1{
+  background-color: #FEB870;
+  padding: 2% 7% 2% 7%;
+  border-radius: 30px;
+}
+.singleNote{
+  display: flex;
+  background-color:#CDB9D5;
+  border-radius: 15px;
+  flex-direction: column;
+  padding: 3%;
+}
+#Title{
+  margin: 0%;
+}
+
+.addBtn{
+  
+  
+  position: absolute;
+  bottom: 5%;
+  
+  
+}
+#addBtn{
+  height: 30%;
+  width: 30%;
+}
+
+/* .App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+} */
