@@ -4,6 +4,7 @@ import { getAuth,
     signInWithEmailAndPassword,
     GoogleAuthProvider,
     signInWithPopup  } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -20,7 +21,9 @@ export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const provider = new GoogleAuthProvider();
 
+
 export function login (email, password) {
+  
   signInWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
     // Signed in 

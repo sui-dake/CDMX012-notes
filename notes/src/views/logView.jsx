@@ -16,12 +16,12 @@ import { AuthProvider } from "../Hooks/authContext";
 export default function LogView (){
     return(
         <div className="logView">
-            <AuthProvider>
+            
               <Logo />
               <Login />
               <Google />
               <SubmitLog />
-            </AuthProvider>
+            
         </div>
     )
 }

@@ -10,7 +10,8 @@ import {
 import '../App.css';
 import useForm from "../Hooks/useForm";
 // import logo from '../images/google_logo.png';
-import { app, auth, logGoogle, login, signUp } from "../firebaseApp";
+import { app, auth, login, signUp } from "../firebaseApp";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import { useAuth } from "../Hooks/authContext";
 
 
@@ -52,8 +53,8 @@ function Login() {
                 {
                   errors.username && <h3>{errors.username}</h3>
                 }
-                <input type= 'submit' value= 'Submit' className="submit" onClick={handleSubmit}/>
-                {/* {console.log('form values', values);} */}
+                <input type= 'submit' value= 'Submit' className="submit" />
+                {/* {console.log('form values', values)} */}
             </form>
         </div>
     );
@@ -62,3 +63,19 @@ function Login() {
 }
 export default Login;
 
+// function HandleLogin (email, pass) {
+//   const navi = useNavigate();
+//   signInWithEmailAndPassword(auth, email, pass)
+//   .then((userCredential) => {
+//     // Signed in 
+//     const user = userCredential.user;
+//     navi('/notes')
+//     // ...
+//   })
+//   .catch((error) => {
+//     const errorCode = error.code;
+//     const errorMessage = error.message;
+//     // ..
+//   });
+// }
+  

@@ -20,11 +20,11 @@ import { AuthProvider } from "../Hooks/authContext";
 export default function SignView (){
     return (
         <div className="SignView">
-            <AuthProvider>
+            
               <Logo />
               <SignIn />
               <SemiLogo />
-            </AuthProvider>
+            
         </div>
     )
 }

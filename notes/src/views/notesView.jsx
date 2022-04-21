@@ -9,12 +9,12 @@ import { AuthProvider } from "../Hooks/authContext";
 export default function NotesView (){
     return (
         <div id="NotesView">
-            <AuthProvider>
+            
                 <NotesHeader />
                 <Notes />
                 <Add />
                 <Logout />
-            </AuthProvider>
+            
         </div>
     )
 }

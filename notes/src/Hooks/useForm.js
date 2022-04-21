@@ -2,9 +2,10 @@ import React, {useState} from "react"
 import {omit} from 'lodash'
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "./authContext";
+import { login } from "../firebaseApp";
 
-const useForm = () => {
-    const { login } = useAuth();
+const useForm = (callback) => {
+    //const { login } = useAuth();
     //Form values
     const [values, setValues] = useState({});
     //Errors 
@@ -82,21 +83,22 @@ const useForm = () => {
             [name]:val,
         })
     }
-    const handleSubmit = async (event) => {
-        if(event) event.preventDefault();
-        try {
-            await login(values.email, values.password);
-            navigate('/notes')
-        } catch(error){
-            setErrors(error.message);
+    const handleSubmit =  (event) => {
+        // if(event) event.preventDefault();
+        // try {
+        //     await login(values.email, values.password);
+        //     navigate('/notes')
+        // } catch(error){
+        //     setErrors(error.message);
 
-        }
-        // if(Object.keys(errors).length === 0 && Object.keys(values).length !==0 ){
-        //     callback();
-
-        // }else{
-        //     alert("There is an Error!");
         // }
+        if(Object.keys(errors).length === 0 && Object.keys(values).length !==0 ){
+            callback();
+            
+            navigate('/notes')
+        }else{
+            alert("There is an Error!");
+        }
     };
 
     return {

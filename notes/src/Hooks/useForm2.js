@@ -3,7 +3,7 @@ import {omit} from 'lodash'
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "./authContext";
 
-const useForm = (callback) => {
+const useForm2 = (callback) => {
     //const { signup } = useAuth();
     //Form values
     const [values, setValues] = useState({});
@@ -68,7 +68,7 @@ const useForm = (callback) => {
     }
     //Handling form inputs
     const handleChange = (event) => {
-        //Stopping defgault events
+        //Stopping default events
         event.persist();
 
         let name = event.target.name;
@@ -107,4 +107,4 @@ const useForm = (callback) => {
     }
 }
     
-export default useForm
+export default useForm2
