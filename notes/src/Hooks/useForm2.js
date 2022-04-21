@@ -9,7 +9,7 @@ const useForm2 = (callback) => {
     const [values, setValues] = useState({});
     //Errors 
     const [errors, setErrors] = useState({});
-    //const navigate = useNavigate();
+    const navigate = useNavigate();
 
 
     const validate = (event, name, value) => {
@@ -93,7 +93,7 @@ const useForm2 = (callback) => {
         // }
         if(Object.keys(errors).length === 0 && Object.keys(values).length !==0 ){
             callback();
-
+            
         }else{
             alert("There is an Error!");
         }

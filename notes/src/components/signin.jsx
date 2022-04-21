@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   BrowserRouter,
   Routes,
@@ -15,61 +15,77 @@ import { useNavigate } from "react-router-dom";
 
 
 function SignIn() {
+
     const formSignIn = () => {
-      console.log('callback function when form is submitted!')
-      console.log('form values', values);
-      const authName = values.username
-      const authEmail = values.email
-      const authPass = values.password
-      console.log(authEmail, authName, authPass);
+     
+      // console.log('callback function when form is submitted!')
+      // console.log('form values', values);
+      // const authName = values.username
+      // const authEmail = values.email
+      // const authPass = values.password
+      // console.log(authEmail, authName, authPass);
     }
    //Custom hook call
    const {handleChange, values,errors,handleSubmit } = useForm2(formSignIn);
    const authName = values.username
    const authEmail = values.email
    const authPass = values.password
-   
+
+  //  const handleChangeData=(event)=>{
+  //    const {target}=event;
+  //    const { name, value}=target;
+
+  //    const newValues={
+  //      ...values,
+  //      [name]:value
+  //    }
+  //    setFormValues(newValues)
+  //  }
+  function Prueba (email, pass) {
+    console.log(email, pass)
+    const navi = useNavigate();
+      createUserWithEmailAndPassword(auth, email, pass)
+      .then((userCredential) => {
+        // Signed in 
+        // const user = userCredential.user;
+        navi('/notes')
+      })
+      .catch((error) => {
+        // const errorCode = error.code;
+        // const errorMessage = error.message;
+        // // ..
+      });
+    }
+
+   const handleSubmitForm=(e)=>{
+     e.preventDefault()
+      
+      Prueba(authEmail, authPass)
+   }
+
+
+
       return (
           <div className="App" id="mainCont"> 
-              <form onSubmit={console.log('holi')}>
+              <form onSubmit={handleSubmitForm}>
                   <h1 id="SignInTxt">Sign In</h1>
-                  <input className = 'emailPass' type= 'text' name= 'email' placeholder="E-mail"  onChange={handleChange}  />
+                  <input className = 'emailPass' type= 'text' name= 'email' placeholder="E-mail"  onChange={handleChange} />
                   {
-                    errors.email && <h3>{errors.email}</h3>
+                    errors.email && <p>{errors.email}</p>
                   }
-                  <input className = 'emailPass' type= 'password' name= 'password' placeholder="Password" onChange={handleChange} />
+                  <input  minLength='8' className = 'emailPass' type= 'password' name= 'password' placeholder="Password" onChange={handleChange} />
                   {
-                    errors.password && <h3>{errors.password}</h3>
+                    errors.password && <p>{errors.password}</p>
                   }
-                  <input className = 'emailPass' type= 'text' name= 'username' placeholder="Username"  onChange={handleChange}  />
+                  <input  minLength='5' className = 'emailPass' type= 'text' name= 'username' placeholder="Username" onChange={handleChange}  />
                   {
-                    errors.username && <h3>{errors.username}</h3>
+                    errors.username && <p>{errors.username}</p>
                   }
-                  <input type= 'submit' value= 'Create' className="submit"   >
-                
-                </input>
-                  {/* {console.log('form values', values);} */}
+                  <button type= 'submit' className="submit" /*onSubmit={Prueba(authEmail, authPass)}*/ >Create</button>
+                   {console.log('form values', values)} 
               </form>
-                {/* <nav id ='newAcc' type= 'button' value= 'Create an account' className="submit">
-                <Link to='/notes'>Create an account</Link>
-                <Outlet/>
-                </nav> */}
           </div>
       );      
   }
   export default SignIn;
 
-  function Prueba (email, pass) {
-    const navi = useNavigate();
-      createUserWithEmailAndPassword(auth, email, pass)
-      .then((userCredential) => {
-        // Signed in 
-        const user = userCredential.user;
-        navi('/notes')
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        // ..
-      });
-    }

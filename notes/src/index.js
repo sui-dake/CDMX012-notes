@@ -21,12 +21,15 @@ const root = ReactDOM.createRoot(rootElement);
 root.render(
   <BrowserRouter>
     <Routes>
+    
+    <Route path='login' element={<LogView />} />
+    <Route path='notes' element={<NotesView />} />
     <Route path='signin' element={<SignView />} />
-      {/* <Route path='/' element={<AppRouter />}>
+      {/* <Route path='/' element={<AppRouter />}> */}
         <Route path='login' element={<LogView />} />
         
         <Route path='notes' element={<NotesView />} />
-      </Route> */}
+      {/* </Route> */}
     </Routes>
   </BrowserRouter>,
 );
