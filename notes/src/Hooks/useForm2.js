@@ -73,8 +73,8 @@ const useForm2 = (callback) => {
 
         let name = event.target.name;
         let val = event.target.value;
-
         validate(event, name, val);
+        
 
         //Setting values in state
         setValues({
@@ -92,6 +92,7 @@ const useForm2 = (callback) => {
 
         // }
         if(Object.keys(errors).length === 0 && Object.keys(values).length !==0 ){
+            
             callback();
             
         }else{

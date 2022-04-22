@@ -15,7 +15,7 @@ import { useNavigate } from "react-router-dom";
 
 
 function SignIn() {
-
+  const navi = useNavigate();
     const formSignIn = () => {
      
       // console.log('callback function when form is submitted!')
@@ -23,51 +23,50 @@ function SignIn() {
       // const authName = values.username
       // const authEmail = values.email
       // const authPass = values.password
-      // console.log(authEmail, authName, authPass);
+       console.log(authEmail, authName, authPass);
+      // function Prueba (email, pass) {
+      //   console.log(email, pass)
+      //   
+          createUserWithEmailAndPassword(auth, authEmail, authPass)
+          .then((userCredential) => {
+            // Signed in 
+            // const user = userCredential.user;
+            navi('/notes')
+          })
+          .catch((error) => {
+            // const errorCode = error.code;
+            // const errorMessage = error.message;
+            // // ..
+          });
+        
+        
+          
     }
    //Custom hook call
    const {handleChange, values,errors,handleSubmit } = useForm2(formSignIn);
    const authName = values.username
    const authEmail = values.email
    const authPass = values.password
-
+   
   //  const handleChangeData=(event)=>{
   //    const {target}=event;
   //    const { name, value}=target;
+  
 
+  //  const handleSubmitForm=(e)=>{
+  //    e.preventDefault()
+      
+  //     //Prueba(authEmail, authPass)
+  //   }
   //    const newValues={
   //      ...values,
   //      [name]:value
   //    }
   //    setFormValues(newValues)
   //  }
-  function Prueba (email, pass) {
-    console.log(email, pass)
-    const navi = useNavigate();
-      createUserWithEmailAndPassword(auth, email, pass)
-      .then((userCredential) => {
-        // Signed in 
-        // const user = userCredential.user;
-        navi('/notes')
-      })
-      .catch((error) => {
-        // const errorCode = error.code;
-        // const errorMessage = error.message;
-        // // ..
-      });
-    }
-
-   const handleSubmitForm=(e)=>{
-     e.preventDefault()
-      
-      Prueba(authEmail, authPass)
-   }
-
-
-
-      return (
+        return (
           <div className="App" id="mainCont"> 
-              <form onSubmit={handleSubmitForm}>
+              <form onSubmit={handleSubmit} >
                   <h1 id="SignInTxt">Sign In</h1>
                   <input className = 'emailPass' type= 'text' name= 'email' placeholder="E-mail"  onChange={handleChange} />
                   {
@@ -81,7 +80,7 @@ function SignIn() {
                   {
                     errors.username && <p>{errors.username}</p>
                   }
-                  <button type= 'submit' className="submit" /*onSubmit={Prueba(authEmail, authPass)}*/ >Create</button>
+                  <button type= 'submit' className="submit" >Create</button>
                    {console.log('form values', values)} 
               </form>
           </div>
