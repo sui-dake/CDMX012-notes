@@ -1,15 +1,7 @@
-import React, { useState } from "react";
-import {
-  BrowserRouter,
-  Routes,
-  Switch,
-  Route,
-  Link,
-  Outlet
-} from "react-router-dom";
+import React from "react";
 import '../App.css';
 import useForm2 from "../Hooks/useForm2";
-import { app, auth, login, provider, signUp } from "../firebaseApp";
+import { auth } from "../firebaseApp";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 
@@ -20,9 +12,6 @@ function SignIn() {
      
       // console.log('callback function when form is submitted!')
       // console.log('form values', values);
-      // const authName = values.username
-      // const authEmail = values.email
-      // const authPass = values.password
        console.log(authEmail, authName, authPass);
       // function Prueba (email, pass) {
       //   console.log(email, pass)

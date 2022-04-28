@@ -9,7 +9,7 @@ const useForm2 = (callback) => {
     const [values, setValues] = useState({});
     //Errors 
     const [errors, setErrors] = useState({});
-    const navigate = useNavigate();
+    
 
 
     const validate = (event, name, value) => {

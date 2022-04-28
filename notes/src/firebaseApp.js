@@ -4,6 +4,7 @@ import { getAuth,
     signInWithEmailAndPassword,
     GoogleAuthProvider,
     signInWithPopup  } from "firebase/auth";
+import { getFirestore, collection, doc, onSnapshot, query, where, getDocs } from 'firebase/firestore';
 import { useNavigate } from "react-router-dom";
 
 // Your web app's Firebase configuration
@@ -20,15 +21,16 @@ const firebaseConfig = {
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const provider = new GoogleAuthProvider();
+export const db = getFirestore(app);
 
 
-export function login (email, password) {
-  
+export function LoginFun (email, password) {
+  const navi = useNavigate();
   signInWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
     // Signed in 
     const user = userCredential.user;
-    // ...
+    
   })
   .catch((error) => {
     const errorCode = error.code;
@@ -71,4 +73,43 @@ export function logGoogle () {
     const credential = GoogleAuthProvider.credentialFromError(error);
     // ...
   });
+}
+
+
+
+export function addNote(callb){
+  const q = query(collection(db, "Notes"), where("state", "==", "CA"));
+  const unsubscribe = onSnapshot(q, (querySnapshot) => {
+    const notes = [];
+    querySnapshot.forEach((doc) => {
+        notes.push(doc.data().name);
+    });
+    callb(notes)
+  });
+}
+
+export const unsub = (callback) =>{
+  const data = collection(db, 'Notes');
+  const sortData = query(data, where('state', '==', 'CA'))
+  let noteArr = [];
+  onSnapshot(sortData, (snapshot) => {
+    snapshot.forEach((noto) => {
+      if(noto.metadata.hasPendingWrites){
+        if(noto.exists){
+          noteArr.push({
+            id: noto.id,
+            ...noto.data(),
+          });
+        } else {
+          // borra
+        }
+      } else {
+        noteArr.push({
+          id: noto.id,
+          ...noto.data(),
+        });
+      }
+    });
+    callback(noteArr);
+  })
 }

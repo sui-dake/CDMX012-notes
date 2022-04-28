@@ -1,8 +1,8 @@
 import React, {useState} from "react"
 import {omit} from 'lodash'
-import { useNavigate } from "react-router-dom";
-import { useAuth } from "./authContext";
-import { login } from "../firebaseApp";
+// import { useNavigate } from "react-router-dom";
+// import { useAuth } from "./authContext";
+// import { login } from "../firebaseApp";
 
 const useForm = (callback) => {
     //const { login } = useAuth();
@@ -10,7 +10,7 @@ const useForm = (callback) => {
     const [values, setValues] = useState({});
     //Errors 
     const [errors, setErrors] = useState({});
-    const navigate = useNavigate();
+    
 
 
     const validate = (event, name, value) => {
@@ -84,7 +84,7 @@ const useForm = (callback) => {
         })
     }
     const handleSubmit =  (event) => {
-        // if(event) event.preventDefault();
+        if(event) event.preventDefault();
         // try {
         //     await login(values.email, values.password);
         //     navigate('/notes')
@@ -95,7 +95,6 @@ const useForm = (callback) => {
         if(Object.keys(errors).length === 0 && Object.keys(values).length !==0 ){
             callback();
             
-            navigate('/notes')
         }else{
             alert("There is an Error!");
         }

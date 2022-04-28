@@ -15,6 +15,7 @@ import Notes from './components/notes';
 import LogView from './views/logView'
 import SignView from './views/signView';
 import NotesView from './views/notesView';
+import NewView from './views/newView';
 
 const rootElement = document.getElementById('root');
 const root = ReactDOM.createRoot(rootElement);
@@ -25,10 +26,11 @@ root.render(
     <Route path='login' element={<LogView />} />
     <Route path='notes' element={<NotesView />} />
     <Route path='signin' element={<SignView />} />
+    <Route path='addNote' element={<NewView />} />
       {/* <Route path='/' element={<AppRouter />}> */}
-        <Route path='login' element={<LogView />} />
         
-        <Route path='notes' element={<NotesView />} />
+        
+        
       {/* </Route> */}
     </Routes>
   </BrowserRouter>,

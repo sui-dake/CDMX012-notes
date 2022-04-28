@@ -9,17 +9,33 @@ import {
 } from "react-router-dom";
 import useForm from "../Hooks/useForm";
 import logo from '../images/google_logo.png';
-import { app, auth, logGoogle, provider } from "../firebaseApp";
+import { app, auth, logGoogle, provider, unsub } from "../firebaseApp";
 import Invoices from "./invoices";
+import { dbNotes } from "./noteContent";
 
-function Notes () {
+
+// const dNotes = (notes) =>{
+//   notes.forEach(docu => {
+//       const dbs = [{
+//           id: docu.id,
+//           title: docu.title,
+//           description: docu.note,
+//       }]     
+//   });
+  
+//   unsub(dNotes);
+// } 
+
+function Notes (props) {
+  const {nota} = props
+  console.log(nota)
     return(
-        <div id="notesContainer">
+        <form id="notesContainer">
             <figure className="singleNote">
-              <h1 id="Title">Title</h1>
-              <p placeholder="Description">Description</p>
+              <h1 id="Title">{nota.title}</h1>
+              <p>{nota.description}</p>
             </figure>  
-        </div>
+        </form>
     )
 }
 export default Notes;
