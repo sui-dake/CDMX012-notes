@@ -4,6 +4,7 @@ import { db } from "../firebaseApp"
 import { useEffect, useState } from "react";
 import logo from '../images/trash.png';
 import { Link } from 'react-router-dom';
+import Delete from "./delete";
 
 // const unsubs = () =>{
 //     const data = collection(db, 'Notes');
@@ -81,6 +82,7 @@ export default function Appnotes (){
     // })
 
     useEffect(() =>{
+        let postArray = []
         const getNotes =  () =>{
             const data =  onSnapshot(noteQuery,(snapshot)=>{
                 // const changes = snapshot.docChanges()
@@ -95,19 +97,17 @@ export default function Appnotes (){
         getNotes();
     }, []);
     //INVESTIGAR BIEN USE EFFECT
-    //const {dbs} = dbNotes
-    // const {changes} = unsubscribe
     return(
         <section id="notesContainer">
             {notas.map((nota) => (
            
            
                  <figure className="singleNote" >
-                     <Link to='/addNote' style={{textDecoration: 'none'}}>
+                     <Link to={`/addNote/${nota.id}`} style={{textDecoration: 'none'}}>
                     <h1 style={{margin: '0'}}>{nota.title}</h1>
                     <p>{nota.note}</p>                    
                     </Link>
-                    <img id ='trashBtn' type ='button' src={logo} alt="trash" style={{width: '10%', height: '10%', }} onClick={()=>{console.log('holi')}}/>
+                    <Delete id={nota.id}/>
                 </figure>
                 
             ))}

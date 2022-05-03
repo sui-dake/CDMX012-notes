@@ -27,6 +27,8 @@ root.render(
     <Route path='notes' element={<NotesView />} />
     <Route path='signin' element={<SignView />} />
     <Route path='addNote' element={<NewView />} />
+    <Route path='addNote' element={<Invoices />} />
+    <Route path='addNote' element={<Expenses />} />
       {/* <Route path='/' element={<AppRouter />}> */}
         
         

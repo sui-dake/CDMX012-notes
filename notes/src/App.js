@@ -46,7 +46,7 @@ import useForm from "./Hooks/useForm";
 export function AppRouter() {
   return (
     <div>
-      {/* <h1>Bookkeeper!</h1>
+      <h1>Bookkeeper!</h1>
       <nav
       style={{
         borderBottom: 'solid 1px',
@@ -55,7 +55,7 @@ export function AppRouter() {
       >
         <Link to= '/invoices'>Invoices</Link> |{' '}
         <Link to= '/expenses'>Expenses</Link>
-        </nav> */}
+        </nav>
         <Outlet />
     </div>
   );
