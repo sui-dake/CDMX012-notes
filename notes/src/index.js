@@ -17,6 +17,7 @@ import SignView from './views/signView';
 import NotesView from './views/notesView';
 import NewView from './views/newView';
 import EditView from './views/editView';
+import EditNote from './components/editNote';
 
 const rootElement = document.getElementById('root');
 const root = ReactDOM.createRoot(rootElement);
@@ -28,7 +29,7 @@ root.render(
     <Route path='notes' element={<NotesView />} />
     <Route path='signin' element={<SignView />} />
     <Route path='addNote' element={<NewView />} />
-    <Route path='editNote' element={<EditView />} />
+    <Route path='editNote/:id' element={<EditView />} />
       {/* <Route path='/' element={<AppRouter />}> */}
         
         

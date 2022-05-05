@@ -30,13 +30,14 @@ export default function Appnotes (){
 
         
     }, []);
+    console.count();
     //INVESTIGAR BIEN USE EFFECT
     return(
         <section id="notesContainer">
             {notas.map((nota) => (
            
            
-                 <figure className="singleNote" >
+                 <figure  key={nota.id} className="singleNote" >
                      {/* <EditNote title={nota.title} content={nota.note} /> */}
                      <Link to={`/editNote/${nota.id}`} style={{textDecoration: 'none'}}>
                     <h1 style={{margin: '0', textDecoration: 'none'}}>{nota.title}</h1>
